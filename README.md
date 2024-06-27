@@ -267,6 +267,7 @@ Answer
 4. Primary key implementation will be ensured as agreed with business.
 5. Data Row with Inconsistent datatype in column value will be skipped.
 6. Correct Data Count for Large Data File with Billions of records will be ensured.
+
 Question 2. What would need to change for the solution scale to work with a 10TB dataset with 5GB new data arriving each day?
 Answer
 1. Database optimization can be implemeted such as Bucketing and Partioning to make it more efficient.
@@ -274,6 +275,7 @@ Answer
 3. Extract, Transformation and Load process can be handled separately with Distributed Frameworks like Apache Pyspark.
 4. Dynamic allocation can be implemented in Pyspark Cluster to meke it more compatible to work with heavy workloads.
 5. Cache and Persist methods can be used in Pyspark.
+
 Question 3. Please tell us in your modified README about any assumptions you have made in your solution (below).
 Answer
 1. Considering Id as the Primary key of the Table as it has unique values across all rows.
