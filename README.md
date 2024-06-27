@@ -257,3 +257,27 @@ Please include instructions about your strategy and important decisions you made
 1. What kind of data quality measures would you apply to your solution in production?
 2. What would need to change for the solution scale to work with a 10TB dataset with 5GB new data arriving each day?
 3. Please tell us in your modified README about any assumptions you have made in your solution (below).
+
+## Followup Questions:
+Question 1. What kind of data quality measures would you apply to your solution in production?
+Answer
+1. Ensure there is a check for missing columns data and if so insert it with default value.
+2. table with correct schema is created as agreed with Business.
+3. Any extra columns in the data row will be discarded and data row will be ingested.
+4. Primary key implementation will be ensured as agreed with business.
+5. Data Row with Inconsistent datatype in column value will be skipped.
+6. Correct Data Count for Large Data File with Billions of records will be ensured.
+Question 2. What would need to change for the solution scale to work with a 10TB dataset with 5GB new data arriving each day?
+Answer
+1. Database optimization can be implemeted such as Bucketing and Partioning to make it more efficient.
+2. caching of Views in databases can be of good use if the view is being used frequently with the help of materialized views concept.
+3. Extract, Transformation and Load process can be handled separately with Distributed Frameworks like Apache Pyspark.
+4. Dynamic allocation can be implemented in Pyspark Cluster to meke it more compatible to work with heavy workloads.
+5. Cache and Persist methods can be used in Pyspark.
+Question 3. Please tell us in your modified README about any assumptions you have made in your solution (below).
+Answer
+1. Considering Id as the Primary key of the Table as it has unique values across all rows.
+2. If a column is present in 100% of the rows then that column will be considered to create schema of the table else will be considered as Extra column.
+3. As UserId and BountyAmount column is only present in less than 7% of the rows, not considering these column to create table schema.
+
+
